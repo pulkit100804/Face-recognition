@@ -5,12 +5,12 @@ import os
  
 folderpath1='Images'
 modepath1=os.listdir(folderpath1)
-ID = []
+stID = []
 imgmode1=[]
 for path1 in modepath1:
     imgmode1.append(cv2.imread(os.path.join(folderpath1,path1)))
-    ID.append(os.path.splitext(path1)[0])
-print(ID)
+    stID.append(os.path.splitext(path1)[0])
+print(stID)
 
 def encodes(imagelist):
     encodedlist=[]
@@ -21,5 +21,10 @@ def encodes(imagelist):
     return encodedlist
 print("encoding started")
 KnownEncode=encodes(imgmode1)
-print(KnownEncode)
+KnownEncodeID=[KnownEncode,stID]
 print("Encoding completed")
+
+file=open("Encodelist.p","wb")
+pickle.dump(KnownEncodeID,file)
+file.close()
+print("File saved")
