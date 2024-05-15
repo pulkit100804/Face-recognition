@@ -39,6 +39,7 @@ while True:
         matched=np.argmin(facedis)
         if matched in matches:
             print("known face detected")
+            print(Stid[matched])
         if matched not in matches:
             print("Unknown Face detetcted")
     cv2.imshow("face attendance", imgbg)
