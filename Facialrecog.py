@@ -40,7 +40,7 @@ while True:
         if matched in matches:
             print("known face detected")
         if matched not in matches:
-            print("no matched")
+            print("Unknown Face detetcted")
     cv2.imshow("face attendance", imgbg)
     if cv2.waitKey(1) & 0xFF == ord('e'):
         break
