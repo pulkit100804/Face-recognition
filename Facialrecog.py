@@ -36,12 +36,18 @@ while True:
         #print(matches)
        # print(facedis)
 
-        matched=np.argmin(facedis)
-        if matched in matches:
-            print("known face detected")
-            print(Stid[matched])
-        if matched not in matches:
-            print("Unknown Face detetcted")
+        matched_index = None
+        for idx, match in enumerate(matches):
+            if match:
+                matched_index = idx
+                break
+
+        if matched_index is not None:
+            print("Known face detected")
+            print(Stid[matched_index])
+        else:
+            print("Unknown face detected")
+
     cv2.imshow("face attendance", imgbg)
     if cv2.waitKey(1) & 0xFF == ord('e'):
         break
