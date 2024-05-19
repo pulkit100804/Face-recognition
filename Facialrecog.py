@@ -8,6 +8,11 @@ from firebase_admin import credentials
 from firebase_admin import db
 from firebase_admin import storage
 
+cred = credentials.Certificate("C:\\Users\\Asus\OneDrive\Desktop\\Pulkit_AIML\\Machine learning Train\\Facial Recognition\\face-recog-attendance-6c441-firebase-adminsdk-q505x-43239c714b.json")
+firebase_admin.initialize_app(cred,{
+    'databaseURL': "https://face-recog-attendance-6c441-default-rtdb.firebaseio.com/",
+    'storageBucket': "face-recog-attendance-6c441.appspot.com"
+})
 bucket=storage.bucket()
 modetype=0
 counter=0
