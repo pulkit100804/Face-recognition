@@ -64,6 +64,9 @@ while True:
                 modetype=1
     if counter != 0:
         if counter == 1:
+            blob=bucket.get_blob(f'Images/{ids}.png')
+            array=np.frombuffer(blob.download_as_string(),np.uint8)
+            imgst=cv2.imdecode(array,cv2.COLOR_BGRA2BGR)
             studentinfo=db.reference(f'Students/{ids}').get()
             cv2.putText(imgbg,str(studentinfo['Attendnace']),(861,125),
                         cv2.FONT_HERSHEY_COMPLEX,1,(255,255,255),1)
@@ -77,6 +80,7 @@ while True:
             offest=(414-w)//2
             cv2.putText(imgbg,str(studentinfo['Name']),(808+offest,465),
                         cv2.FONT_HERSHEY_COMPLEX,1,(55,55,55),1)
+            imgbg[175:175+622,909:909+493]=imgst
             
         counter=+1
 
