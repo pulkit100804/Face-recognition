@@ -80,7 +80,7 @@ while True:
             offest=(414-w)//2
             cv2.putText(imgbg,str(studentinfo['Name']),(808+offest,465),
                         cv2.FONT_HERSHEY_COMPLEX,1,(55,55,55),1)
-            imgbg[175:175+622,909:909+493]=imgst
+            imgbg[175:175+216,909:909+216]=imgst
             
         counter=+1
 
